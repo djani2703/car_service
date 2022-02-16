@@ -21,9 +21,15 @@ defmodule CarServiceWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", CarServiceWeb do
-  #   pipe_through :api
-  # end
+  scope "/", CarServiceWeb do
+    pipe_through :api
+
+    get "/brands", BrandController, :all_brands
+    post "/brands", BrandController, :create
+    get "/brands/:id", BrandController, :show
+    put "/brands/:id", BrandController, :update
+    delete "/brands/:id", BrandController, :delete
+  end
 
   # Enables LiveDashboard only for development
   #
