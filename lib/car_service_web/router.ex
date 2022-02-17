@@ -18,6 +18,10 @@ defmodule CarServiceWeb.Router do
     pipe_through :api
 
     get "/", PageController, :index
+
+    get "/cars", CarController, :all_cars
+    post "/cars", CarController, :create
+    get "/cars/:id", CarController, :show
   end
 
   # Other scopes may use custom stacks.

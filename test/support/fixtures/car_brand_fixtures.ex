@@ -10,9 +10,7 @@ defmodule CarService.CarBrandFixtures do
   def brand_fixture(attrs \\ %{}) do
     {:ok, brand} =
       attrs
-      |> Enum.into(%{
-        name: "some name"
-      })
+      |> Enum.into(%{name: "some name"})
       |> CarService.CarBrand.create_brand()
 
     brand

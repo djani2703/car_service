@@ -3,11 +3,13 @@ defmodule CarService.CarBrand.Brand do
 
   use Ecto.Schema
   import Ecto.Changeset
+  alias CarService.CarInfo.Car
 
   @primary_key {:id, :binary_id, autogenerate: true}
 
   schema "brands" do
     field :name, :string, null: false
+    has_many :cars, Car, foreign_key: :brand_id
 
     timestamps()
   end
